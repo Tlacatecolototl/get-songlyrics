@@ -1,5 +1,4 @@
 Import-Module ps-spotify
-Import-Module UniversalDashboard
 Add-Type -path $PSScriptRoot\HtmlAgilityPack.dll
 
 while ($true) {
