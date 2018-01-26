@@ -4,7 +4,7 @@ Add-Type -path $PSScriptRoot\HtmlAgilityPack.dll
 while ($true) {
     $song =  Get-SpotifyCurrentlyPlaying
          if ($oldsong -ne $song.item.name ) {
-            clear
+            clear-host
             $search = Invoke-RestMethod "https://genius.com/api/search/multi?per_page=5&q=$($song.item.name)%20$($song.item.artists.name)"
             $html = New-Object HtmlAgilityPack.HtmlWeb
             $lyrics = (($html.Load("$($search.response.sections.hits[0].result.url)")).DocumentNode.SelectSingleNode("//p").innertext).split("`n")
